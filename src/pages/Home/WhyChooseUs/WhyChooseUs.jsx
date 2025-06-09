@@ -13,7 +13,7 @@ const features = [
 const WhyChooseUs = () => {
   return (
     <section className="bg-gradient-to-br from-yellow-50 to-white py-16 px-4 md:px-10 lg:px-24">
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="container mx-auto text-center">
         <motion.h2
           className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6"
           initial={{ opacity: 0, y: -30 }}
@@ -29,7 +29,9 @@ const WhyChooseUs = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          At Hoteleo, we bring you a travel experience crafted with care and style. Whether you're chasing luxury or comfort, we ensure your hotel booking journey is smooth, reliable, and unforgettable.
+          At Hoteleo, we bring you a travel experience crafted with care and
+          style. Whether you're chasing luxury or comfort, we ensure your hotel
+          booking journey is smooth, reliable, and unforgettable.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 container mx-auto text-left">
@@ -52,4 +54,3 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-

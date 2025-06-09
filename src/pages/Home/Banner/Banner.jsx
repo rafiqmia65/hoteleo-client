@@ -58,14 +58,14 @@ const Banner = () => {
               <div className="relative z-20 flex items-center justify-center h-full px-4">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="text-center text-white max-w-6xl"
                 >
                   <motion.h1
                     className="text-4xl md:text-6xl font-bold mt-20 mb-4 drop-shadow-lg"
                     initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                   >
                     {slide.title}
@@ -74,7 +74,7 @@ const Banner = () => {
                   <motion.p
                     className="text-lg md:text-xl max-w-5xl mt-10 mb-10 text-gray-200"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
                   >
                     {slide.description}

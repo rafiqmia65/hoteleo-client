@@ -2,5 +2,5 @@
 @plugin "daisyui";
 
 .menu li > a.active{
-    color: #014961;
+    color: #f0b100;
 }
