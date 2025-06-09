@@ -5,6 +5,9 @@ const Navbar = () => {
   const links = (
     <>
       <li className="text-base font-bold">
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li className="text-base font-bold">
         <NavLink to={"/aboutUs"}>About Us</NavLink>
       </li>
       <li className="text-base font-bold">
