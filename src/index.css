@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.menu li > a.active{
+    color: #014961;
+}
