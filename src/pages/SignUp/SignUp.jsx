@@ -4,7 +4,7 @@ import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser, user, setUser, updateUser, googleAuth } = useAuth();
+  const { createUser, setUser, updateUser, googleAuth } = useAuth();
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const SignUp = () => {
           })
           .catch((error) => {
             setErrorText(error.message);
-            setUser(user);
+            setUser(newUser);
           });
 
         Swal.fire({
@@ -67,7 +67,7 @@ const SignUp = () => {
         const newUser = result.user;
 
         Swal.fire({
-          title: `${newUser.displayName}'s your are successfully Logged In`,
+          title: `${newUser.displayName}'s you are successfully Logged In`,
           text: "You clicked the button!",
           icon: "success",
         });
@@ -89,7 +89,7 @@ const SignUp = () => {
   return (
     <div className="min-h-screen pt-30 pb-10  flex items-center justify-center p-6">
       <div className=" p-8 rounded shadow-2xl w-full max-w-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">SignUp Now!</h2>
         <form onSubmit={handleSignUp} className="space-y-4">
           <div className="form-control">
             <label className="label">
@@ -141,7 +141,7 @@ const SignUp = () => {
           </div>
           {errorText && <p className="text-red-500 text-sm">{errorText}</p>}
           <button className="btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold w-full mt-6">
-            Login
+            SignUp
           </button>
         </form>
         {/* Google */}
