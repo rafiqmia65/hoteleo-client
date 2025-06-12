@@ -5,11 +5,25 @@ import { MdTableRows } from "react-icons/md";
 import { useLoaderData } from "react-router";
 import TableView from "./TableView/TableView";
 import CardView from "./CardView/CardView";
+import axios from "axios";
 
 const AllRooms = () => {
   const rooms = useLoaderData();
-  const [budget, setBudget] = useState("All");
+  const [filteredRooms, setFilteredRooms] = useState(rooms);
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const handlePriceFilter = (e) => {
+    e.preventDefault();
+
+    const budget = e.target.budget.value;
+
+    axios
+      .get(`${import.meta.env.VITE_serverURL}/rooms?budget=${budget}`)
+      .then((res) => {
+        setFilteredRooms(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
 
   useEffect(() => {
     const savedIndex = localStorage.getItem("roomTabIndex");
@@ -23,30 +37,31 @@ const AllRooms = () => {
     localStorage.setItem("roomTabIndex", index);
   };
 
-  const filteredRooms = rooms.filter((room) => {
-    if (budget === "All") return true;
-    if (budget === "0-1000") return room.price <= 1000;
-    if (budget === "1001-1500") return room.price > 1000 && room.price <= 1500;
-    if (budget === "1501+") return room.price > 1500;
-    return true;
-  });
-
   return (
     <div className="min-h-screen pt-30 pb-14 bg-base-200">
       <div className="container mx-auto px-5 lg:px-0">
         <TabGroup selectedIndex={selectedIndex} onChange={handleTabChange}>
           {/* Filter and Tab Switch */}
           <div className="flex flex-wrap  px-5 py-2 justify-between items-center gap-4 mb-6">
-            <select
-              value={budget}
-              onChange={(e) => setBudget(e.target.value)}
-              className="select cursor-pointer select-bordered border-yellow-400 text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-            >
-              <option value="All">All</option>
-              <option value="0-1000">0 - 1000</option>
-              <option value="1001-1500">1001 - 1500</option>
-              <option value="1501+">1501 +</option>
-            </select>
+            <form onSubmit={handlePriceFilter}>
+              <div className="flex ">
+                <select
+                  name="budget"
+                  className="select cursor-pointer select-bordered border-yellow-400 text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                >
+                  <option value="All">All</option>
+                  <option value="0-1000">0 - 1000</option>
+                  <option value="1001-1500">1001 - 1500</option>
+                  <option value="1501+">1501 +</option>
+                </select>
+                <button
+                  className="btn bg-yellow-500 border-yellow-500 text-white border-l-0 rounded-l-none"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
 
             <TabList className="flex gap-2">
               <Tab
