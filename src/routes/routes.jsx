@@ -9,6 +9,8 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Loader from "../pages/Shared/Loader/Loader";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -28,16 +30,22 @@ export const router = createBrowserRouter([
         path: "allRooms",
         loader: () => fetch(`${import.meta.env.VITE_serverURL}/rooms`),
         element: <AllRooms></AllRooms>,
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "myBookings",
-        element: <MyBookings></MyBookings>,
+        element: (
+          <PrivateRoutes>
+            <MyBookings></MyBookings>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "roomDetails/:id",
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_serverURL}/rooms/${params.id}`),
         element: <RoomDetails></RoomDetails>,
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "login",
