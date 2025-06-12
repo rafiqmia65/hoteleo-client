@@ -1,7 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router";
-import logo from "../../../assets/logo.png"
+import { NavLink, useNavigate } from "react-router";
+import logo from "../../../assets/logo.png";
+import useAuth from "../../../Hook/useAuth";
+import Swal from "sweetalert2";
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          title: `You are successfully LogOut`,
+          text: "You clicked the button!",
+          icon: "success",
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessage,
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
+      });
+  };
+
   const links = (
     <>
       <li className="text-base font-bold">
@@ -59,10 +85,30 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <div className="flex gap-3">
-            <NavLink className="btn btn-primary" to={"/login"}>Login</NavLink>
-            <NavLink className="btn btn-secondary" to={"/signUp"}>SignUp</NavLink>
-          </div>
+          {user ? (
+            <div className="flex gap-3">
+              <img
+                className="w-10 rounded-full ring-2 ring-yellow-500"
+                src={user?.photoURL}
+                alt="User"
+              />
+              <button
+                onClick={handleLogOut}
+                className="btn bg-yellow-500 text-white"
+              >
+                LogOut
+              </button>
+            </div>
+          ) : (
+            <div className="flex gap-3">
+              <NavLink className="btn btn-primary" to={"/login"}>
+                Login
+              </NavLink>
+              <NavLink className="btn btn-secondary" to={"/signUp"}>
+                SignUp
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </nav>

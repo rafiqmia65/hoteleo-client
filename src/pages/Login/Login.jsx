@@ -17,7 +17,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const loginUser = result.user;
-
+        console.log(loginUser)
         Swal.fire({
           title: `${loginUser.displayName}'s you are successfully Logged In`,
           text: "You clicked the button!",
