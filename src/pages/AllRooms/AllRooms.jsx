@@ -33,7 +33,7 @@ const AllRooms = () => {
 
   return (
     <div className="min-h-screen pt-30 pb-14 bg-base-200">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5 lg:px-0">
         <TabGroup selectedIndex={selectedIndex} onChange={handleTabChange}>
           {/* Filter and Tab Switch */}
           <div className="flex flex-wrap  px-5 py-2 justify-between items-center gap-4 mb-6">
@@ -85,7 +85,7 @@ const AllRooms = () => {
                       <th>Image</th>
                       <th>Title</th>
                       <th>Price</th>
-                      <th>Features</th>
+                      <th className="hidden lg:block">Features</th>
                       <th>Rating</th>
                       <th>Status</th>
                       <th>Details</th>

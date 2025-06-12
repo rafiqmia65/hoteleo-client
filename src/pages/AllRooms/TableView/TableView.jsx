@@ -13,8 +13,8 @@ const TableView = ({ room }) => {
       </td>
       <td className="font-semibold text-slate-800">{room.title}</td>
       <td className="text-yellow-700 font-medium">${room.price}</td>
-      <td className="text-sm text-gray-600">{room.features.join(", ")}</td>
-      <td>{room.rating} ⭐</td>
+      <td className="text-sm text-gray-600 hidden lg:block">{room.features.join(", ")}</td>
+      <td>{room.reviews.length}</td>
       <td>
         {room.availability ? (
           <span className="px-4 rounded-full font-medium py-2 bg-green-500 text-white">
@@ -22,7 +22,7 @@ const TableView = ({ room }) => {
           </span>
         ) : (
           <span className="px-4 rounded-full font-medium py-2 bg-red-500 text-white">
-            Not Available
+            UnAvailable
           </span>
         )}
       </td>
@@ -31,7 +31,7 @@ const TableView = ({ room }) => {
           to={`/roomDetails/${room._id}`}
           className="text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-1.5 rounded-full transition-all"
         >
-          See Details
+          SeeDetails
         </NavLink>
       </td>
     </tr>

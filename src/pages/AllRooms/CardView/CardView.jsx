@@ -38,7 +38,7 @@ const CardView = ({ room }) => {
                   : "bg-red-100 text-red-700"
               }`}
             >
-              {room.availability ? "Available" : "Not Available"}
+              {room.availability ? "Available" : "UnAvailable"}
             </span>
 
             <NavLink
