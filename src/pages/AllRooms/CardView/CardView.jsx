@@ -41,12 +41,9 @@ const CardView = ({ room }) => {
               {room.availability ? "Available" : "UnAvailable"}
             </span>
 
-            <NavLink
-              to={`/roomDetails/${room._id}`}
-              className="text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-1.5 rounded-full transition-all"
-            >
+            <button className="text-sm font-medium cursor-pointer text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-1.5 rounded-full transition-all">
               See Details
-            </NavLink>
+            </button>
           </div>
         </div>
       </div>
