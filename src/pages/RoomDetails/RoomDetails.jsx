@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import BookingModal from "./BookingModal/BookingModal";
 
 const RoomDetails = () => {
   const room = useLoaderData();
+  const [roomData, setRoomData] = useState(room);
 
   return (
     <div className="pt-30 bg-gradient-to-br px-5 lg:px-0 from-yellow-50 to-white pb-14 bg-base-100">
@@ -39,7 +40,7 @@ const RoomDetails = () => {
               </div>
               <div>
                 <strong>Status:</strong>{" "}
-                {room.availability ? (
+                {roomData.availability ? (
                   <span className="text-green-600 font-semibold">
                     Available
                   </span>
@@ -66,7 +67,7 @@ const RoomDetails = () => {
               </div>
             </div>
 
-            {room.availability ? (
+            {roomData.availability ? (
               <>
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <button
@@ -83,8 +84,13 @@ const RoomDetails = () => {
                   className="modal modal-bottom sm:modal-middle"
                 >
                   <div className="modal-box">
-                    <h3 className="text-xl font-bold mb-4">Booking Summary</h3>
-                    <BookingModal room={room}></BookingModal>
+                    <h3 className="text-2xl text-yellow-500 font-bold mb-4">
+                      Booking Summary
+                    </h3>
+                    <BookingModal
+                      room={room}
+                      setRoomData={setRoomData}
+                    ></BookingModal>
                     <div className="modal-action">
                       <form method="dialog">
                         <button className="btn">Close</button>
@@ -114,15 +120,13 @@ const RoomDetails = () => {
           </div>
         ) : (
           <>
-          <hr className="mb-5 mt-4 border-t-4 border-yellow-500" />
-          <p className="italic text-center text-gray-500">
-            No reviews available for this room.
-          </p>
+            <hr className="mb-5 mt-4 border-t-4 border-yellow-500" />
+            <p className="italic text-center text-gray-500">
+              No reviews available for this room.
+            </p>
           </>
         )}
       </div>
-
-      {/* Booking Modal */}
     </div>
   );
 };
