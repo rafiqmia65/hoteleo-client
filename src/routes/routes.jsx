@@ -39,6 +39,7 @@ export const router = createBrowserRouter([
             <MyBookings></MyBookings>
           </PrivateRoutes>
         ),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "roomDetails/:id",
