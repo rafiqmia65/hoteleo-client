@@ -2,10 +2,14 @@ import { Link } from "react-router";
 import Lottie from "lottie-react";
 import notFoundAnimation from "./../../assets/ErrorPage/error.json";
 import { FaHome } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const ErrorPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50 p-4">
+      <Helmet>
+        <title>Hoteleo - page not found</title>
+      </Helmet>
       <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl">
         <div className="md:flex">
           <div className="p-6 md:p-10 flex items-center justify-center">

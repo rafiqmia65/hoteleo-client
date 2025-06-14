@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { login, setUser, googleAuth } = useAuth();
@@ -17,7 +18,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const loginUser = result.user;
-        console.log(loginUser)
+        console.log(loginUser);
         Swal.fire({
           title: `${loginUser.displayName}'s you are successfully Logged In`,
           text: "You clicked the button!",
@@ -64,6 +65,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen pt-30 pb-10  flex items-center justify-center p-6">
+      <Helmet>
+        <title>Hoteleo - Login</title>
+      </Helmet>
       <div className=" p-8 rounded shadow-2xl w-full max-w-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">Login Now!</h2>
         <form onSubmit={handleLogin} className="space-y-4">

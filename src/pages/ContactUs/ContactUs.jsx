@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
   return (
     <div className="bg-gradient-to-br from-yellow-50 to-white pt-30 pb-16 px-4 sm:px-6 lg:px-0">
+      <Helmet>
+        <title>Hoteleo - Contact Us</title>
+      </Helmet>
       <div className="max-w-3xl mx-auto text-center mb-12">
         <motion.h2
           className="text-base text-yellow-600 font-semibold tracking-wide uppercase"

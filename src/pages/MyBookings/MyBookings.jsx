@@ -6,6 +6,7 @@ import Review from "./Review/Review";
 import { FaRegCalendarTimes } from "react-icons/fa";
 import BookingDateUpdate from "./BookingDateUpdate/BookingDateUpdate";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -66,6 +67,9 @@ const MyBookings = () => {
 
   return (
     <div className="pt-30 pb-16">
+      <Helmet>
+        <title>Hoteleo - My Bookings</title>
+      </Helmet>
       <div className="container mx-auto px-5 lg:px-0">
         {myBookingData.length <= 0 ? (
           <>

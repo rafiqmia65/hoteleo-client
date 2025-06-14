@@ -83,7 +83,7 @@ const Services = () => {
 
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto px-5 lg:px-0">
         <div className="text-center mb-12">
           <motion.h2
             className="text-base font-semibold text-yellow-600 tracking-wide uppercase"

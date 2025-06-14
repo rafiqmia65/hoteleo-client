@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const AboutUs = () => {
   return (
     <div className="bg-base-200 pt-28 pb-20 px-4 lg:px-20 text-gray-800">
-      <div className="max-w-6xl mx-auto">
+      <Helmet>
+        <title>Hoteleo - About Us</title>
+      </Helmet>
+      <div className="max-w-6xl mx-auto px-5 lg:px-0">
         <h1 className="text-4xl lg:text-5xl font-bold text-center mb-10 text-yellow-600">
           About Hoteleo
         </h1>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import BookingModal from "./BookingModal/BookingModal";
 import useAuth from "../../Hook/useAuth";
+import { Helmet } from "react-helmet";
 
 const RoomDetails = () => {
   const { user } = useAuth();
@@ -20,7 +21,10 @@ const RoomDetails = () => {
 
   return (
     <div className="pt-30 bg-gradient-to-br px-5 lg:px-0 from-yellow-50 to-white pb-14 bg-base-100">
-      <div className="container mx-auto">
+      <Helmet>
+        <title>Hoteleo - {room.title} details</title>
+      </Helmet>
+      <div className="container mx-auto px-5 lg:px-0">
         <div className="grid lg:grid-cols-2 gap-8">
           <img
             src={room.image}

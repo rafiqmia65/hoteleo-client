@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router";
 import TableView from "./TableView/TableView";
 import CardView from "./CardView/CardView";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const AllRooms = () => {
   const rooms = useLoaderData();
@@ -39,6 +40,9 @@ const AllRooms = () => {
 
   return (
     <div className="min-h-screen pt-30 pb-14 bg-base-200">
+      <Helmet>
+        <title>Hoteleo - All Rooms</title>
+      </Helmet>
       <div className="container mx-auto px-5 lg:px-0">
         <TabGroup selectedIndex={selectedIndex} onChange={handleTabChange}>
           {/* Filter and Tab Switch */}

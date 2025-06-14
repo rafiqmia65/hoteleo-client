@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../Hook/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const { createUser, setUser, updateUser, googleAuth } = useAuth();
@@ -88,6 +89,9 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen pt-30 pb-10  flex items-center justify-center p-6">
+      <Helmet>
+        <title>Hoteleo - SignUp</title>
+      </Helmet>
       <div className=" p-8 rounded shadow-2xl w-full max-w-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">SignUp Now!</h2>
         <form onSubmit={handleSignUp} className="space-y-4">

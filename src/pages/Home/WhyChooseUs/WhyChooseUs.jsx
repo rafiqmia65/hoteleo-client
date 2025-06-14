@@ -13,7 +13,7 @@ const features = [
 const WhyChooseUs = () => {
   return (
     <section className="bg-gradient-to-br from-yellow-50 to-white py-16 px-4 md:px-10 lg:px-24">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto px-5 lg:px-0 text-center">
         <motion.h2
           className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6"
           initial={{ opacity: 0, y: -30 }}
