@@ -45,6 +45,7 @@ const BookingModal = ({ room, setRoomData }) => {
           title: "Error!",
           text: error?.response?.data?.message || "Something went wrong.",
         });
+        document.getElementById("my_modal_5").close();
       });
   };
 

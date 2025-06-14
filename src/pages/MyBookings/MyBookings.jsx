@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hook/useAuth";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
+import Review from "./Review/Review";
+import { FaRegCalendarTimes } from "react-icons/fa";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -22,13 +24,23 @@ const MyBookings = () => {
     }
   }, [user]);
 
+  console.log(myBookingData);
+
   return (
     <div className="pt-30 pb-16">
       <div className="container mx-auto px-5 lg:px-0">
         {myBookingData.length <= 0 ? (
-          <p className="text-center text-lg mt-10 text-gray-600">
-            No bookings found.
-          </p>
+          <>
+            <div className="flex flex-col justify-center items-center h-[calc(100vh-200px)] text-center px-4">
+              <FaRegCalendarTimes className="text-yellow-500 text-6xl mb-4" />
+              <h2 className="text-2xl font-semibold text-gray-700 mb-2">
+                You haven’t booked any rooms yet.
+              </h2>
+              <p className="text-gray-500">
+                Please browse rooms and make your first booking.
+              </p>
+            </div>
+          </>
         ) : (
           <>
             <h2 className="text-3xl font-bold text-center text-yellow-600 mb-6">
@@ -82,9 +94,30 @@ const MyBookings = () => {
                         <button className="inline-flex items-center mb-3 lg:mb-0 gap-1 bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer">
                           <FaEdit className="text-sm" /> Update
                         </button>
-                        <button className="inline-flex items-center gap-1 bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer">
+
+                        {/* Open the modal using document.getElementById('ID').showModal() method */}
+                        <button
+                          className="inline-flex items-center gap-1 bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer"
+                          onClick={() =>
+                            document.getElementById("review_modal").showModal()
+                          }
+                        >
                           <FaStar className="text-sm" /> Review
                         </button>
+                        <dialog
+                          id="review_modal"
+                          className="modal modal-bottom sm:modal-middle"
+                        >
+                          <div className="modal-box">
+                            <Review roomId={booking.roomId}></Review>
+                            <div className="modal-action">
+                              <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn">Close</button>
+                              </form>
+                            </div>
+                          </div>
+                        </dialog>
                       </td>
                     </tr>
                   ))}
