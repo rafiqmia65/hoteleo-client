@@ -4,6 +4,7 @@ import useAuth from "../../Hook/useAuth";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
 import Review from "./Review/Review";
 import { FaRegCalendarTimes } from "react-icons/fa";
+import BookingDateUpdate from "./BookingDateUpdate/BookingDateUpdate";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -23,8 +24,6 @@ const MyBookings = () => {
         });
     }
   }, [user]);
-
-  console.log(myBookingData);
 
   return (
     <div className="pt-30 pb-16">
@@ -91,9 +90,40 @@ const MyBookings = () => {
                         <button className="inline-flex items-center gap-1 mb-3 lg:mb-0 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer">
                           <FaTrash className="text-sm" /> Cancel
                         </button>
-                        <button className="inline-flex items-center mb-3 lg:mb-0 gap-1 bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer">
+                        <button
+                          className="inline-flex items-center mb-3 lg:mb-0 gap-1 bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer"
+                          onClick={() =>
+                            document
+                              .getElementById(`update_modal_${idx}`)
+                              .showModal()
+                          }
+                        >
                           <FaEdit className="text-sm" /> Update
                         </button>
+
+                        <dialog
+                          id={`update_modal_${idx}`}
+                          className="modal modal-bottom sm:modal-middle"
+                        >
+                          <div className="modal-box">
+                            <BookingDateUpdate
+                              roomId={booking.roomId}
+                              bookingId={booking.bookingId}
+                              idx={idx}
+                              onSuccess={(newDate) => {
+                                const updated = [...myBookingData];
+                                updated[idx].date = newDate;
+                                setMyBookingData(updated);
+                              }}
+                            ></BookingDateUpdate>
+                            <div className="modal-action">
+                              <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn">Close</button>
+                              </form>
+                            </div>
+                          </div>
+                        </dialog>
 
                         {/* Open the modal using document.getElementById('ID').showModal() method */}
                         <button
