@@ -5,6 +5,7 @@ import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
 import Review from "./Review/Review";
 import { FaRegCalendarTimes } from "react-icons/fa";
 import BookingDateUpdate from "./BookingDateUpdate/BookingDateUpdate";
+import Swal from "sweetalert2";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -24,6 +25,44 @@ const MyBookings = () => {
         });
     }
   }, [user]);
+
+  const handleBookingCancel = (bookingId, roomId, idx) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to cancel this booking?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#e3342f",
+      cancelButtonColor: "#6c757d",
+      confirmButtonText: "Yes, cancel it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${import.meta.env.VITE_serverURL}/booking-cancel`, {
+            data: { bookingId, roomId },
+          })
+          .then((res) => {
+            if (res.data.success) {
+              Swal.fire(
+                "Cancelled!",
+                "Your booking has been cancelled.",
+                "success"
+              );
+
+              const updated = [...myBookingData];
+              updated.splice(idx, 1);
+              setMyBookingData(updated);
+            } else {
+              Swal.fire("Error", "Failed to cancel booking.", "error");
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            Swal.fire("Error", "Something went wrong.", "error");
+          });
+      }
+    });
+  };
 
   return (
     <div className="pt-30 pb-16">
@@ -87,7 +126,17 @@ const MyBookings = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4 space-x-2 text-center border-b border-yellow-500">
-                        <button className="inline-flex items-center gap-1 mb-3 lg:mb-0 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer">
+                        <button
+                          onClick={() =>
+                            handleBookingCancel(
+                              booking.bookingId,
+                              booking.roomId,
+                              booking.email,
+                              idx
+                            )
+                          }
+                          className="inline-flex items-center gap-1 mb-3 lg:mb-0 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer"
+                        >
                           <FaTrash className="text-sm" /> Cancel
                         </button>
                         <button

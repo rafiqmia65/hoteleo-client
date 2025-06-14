@@ -1,10 +1,22 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import BookingModal from "./BookingModal/BookingModal";
+import useAuth from "../../Hook/useAuth";
 
 const RoomDetails = () => {
+  const { user } = useAuth();
   const room = useLoaderData();
   const [roomData, setRoomData] = useState(room);
+  const navigate = useNavigate();
+
+  const handleBookNow = () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    document.getElementById("my_modal_5").showModal();
+  };
 
   return (
     <div className="pt-30 bg-gradient-to-br px-5 lg:px-0 from-yellow-50 to-white pb-14 bg-base-100">
@@ -72,9 +84,7 @@ const RoomDetails = () => {
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <button
                   className="btn bg-yellow-500 text-white"
-                  onClick={() =>
-                    document.getElementById("my_modal_5").showModal()
-                  }
+                  onClick={handleBookNow}
                 >
                   Book Now
                 </button>
