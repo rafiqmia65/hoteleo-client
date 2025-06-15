@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 const MyBookings = () => {
   const { user } = useAuth();
   const [myBookingData, setMyBookingData] = useState([]);
+  const [selectedRoomId, setSelectedRoomId] = useState(null);
 
   useEffect(() => {
     if (user?.email) {
@@ -65,6 +66,11 @@ const MyBookings = () => {
     });
   };
 
+  const handleReviewClick = (roomId) => {
+    setSelectedRoomId(roomId);
+    document.getElementById("review_modal").showModal();
+  };
+
   return (
     <div className="pt-30 pb-16">
       <Helmet>
@@ -76,7 +82,7 @@ const MyBookings = () => {
             <div className="flex flex-col justify-center items-center h-[calc(100vh-200px)] text-center px-4">
               <FaRegCalendarTimes className="text-yellow-500 text-6xl mb-4" />
               <h2 className="text-2xl font-semibold text-gray-700 mb-2">
-                You haven’t booked any rooms yet.
+                You haven't booked any rooms yet.
               </h2>
               <p className="text-gray-500">
                 Please browse rooms and make your first booking.
@@ -135,7 +141,6 @@ const MyBookings = () => {
                             handleBookingCancel(
                               booking.bookingId,
                               booking.roomId,
-                              booking.email,
                               idx
                             )
                           }
@@ -168,39 +173,21 @@ const MyBookings = () => {
                                 updated[idx].date = newDate;
                                 setMyBookingData(updated);
                               }}
-                            ></BookingDateUpdate>
+                            />
                             <div className="modal-action">
                               <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button className="btn">Close</button>
                               </form>
                             </div>
                           </div>
                         </dialog>
 
-                        {/* Open the modal using document.getElementById('ID').showModal() method */}
                         <button
                           className="inline-flex items-center gap-1 bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer"
-                          onClick={() =>
-                            document.getElementById("review_modal").showModal()
-                          }
+                          onClick={() => handleReviewClick(booking.roomId)}
                         >
                           <FaStar className="text-sm" /> Review
                         </button>
-                        <dialog
-                          id="review_modal"
-                          className="modal modal-bottom sm:modal-middle"
-                        >
-                          <div className="modal-box">
-                            <Review roomId={booking.roomId}></Review>
-                            <div className="modal-action">
-                              <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
-                                <button className="btn">Close</button>
-                              </form>
-                            </div>
-                          </div>
-                        </dialog>
                       </td>
                     </tr>
                   ))}
@@ -210,6 +197,18 @@ const MyBookings = () => {
           </>
         )}
       </div>
+
+      {/* Single review modal outside the table */}
+      <dialog id="review_modal" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          {selectedRoomId && <Review roomId={selectedRoomId} />}
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };

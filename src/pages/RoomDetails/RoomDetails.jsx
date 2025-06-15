@@ -128,7 +128,9 @@ const RoomDetails = () => {
             {room.reviews.map((review, idx) => (
               <div key={idx} className="border p-3 rounded-lg bg-base-200">
                 <p className="text-sm text-gray-800">{review.comment}</p>
-                <p className="text-xs text-yellow-600">— {review.userName}</p>
+                <p className="text-xs text-yellow-600">
+                  — {review.userName || review.name}
+                </p>
               </div>
             ))}
           </div>

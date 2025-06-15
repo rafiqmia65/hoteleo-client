@@ -7,7 +7,7 @@ const Review = ({ roomId }) => {
   const { user } = useAuth();
   const [ratingError, setRatingError] = useState("");
 
-  const handleReview = (e) => {
+  const handleReview = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -16,29 +16,44 @@ const Review = ({ roomId }) => {
     const comment = form.comment.value;
 
     if (isNaN(rating) || rating < 1 || rating > 5) {
-      return setRatingError(
-        "Invalid Rating, Please enter a rating between 1 and 5"
-      );
+      setRatingError("Invalid Rating, Please enter a rating between 1 and 5");
+      return;
     }
+
     const review = {
       name,
       rating,
       comment,
+      userName: name,
+      date: new Date().toISOString(),
     };
 
     axios
       .patch(`${import.meta.env.VITE_serverURL}/review/${roomId}`, { review })
-      .then((res) => {
-        if (res.data.modifiedCount > 0) {
+      .then((response) => {
+        if (response.data.success) {
           Swal.fire("Thanks!", "Your review has been submitted.", "success");
           form.reset();
           document.getElementById("review_modal").close();
+        } else {
+          Swal.fire(
+            "Error",
+            response.data.message || "Failed to submit review",
+            "error"
+          );
         }
       })
       .catch((err) => {
         console.error("Review Error:", err);
-        Swal.fire("Error", "Something went wrong. Try again.", "error");
-        document.getElementById("review_modal").close();
+        let errorMessage = "Something went wrong. Try again.";
+
+        if (err.response) {
+          errorMessage = err.response.data?.message || errorMessage;
+        } else if (err.request) {
+          errorMessage = "Network error. Please check your connection.";
+        }
+
+        Swal.fire("Error", errorMessage, "error");
       });
   };
 
@@ -52,30 +67,38 @@ const Review = ({ roomId }) => {
           <label className="label">Name</label>
           <input
             name="name"
-            defaultValue={user.displayName}
+            defaultValue={user?.displayName || ""}
             type="text"
             className="input w-full"
             placeholder="Name"
             readOnly
+            required
           />
+
           <label className="label">Rating</label>
           <input
             name="rating"
-            type="text"
+            type="number"
+            min="1"
+            max="5"
+            step="0.1"
             className="input w-full"
-            placeholder="Rating ( 1 to 5 )"
+            placeholder="Rating (1 to 5)"
+            required
           />
           {ratingError && <p className="text-sm text-red-400">{ratingError}</p>}
+
           <label className="label">Comment</label>
-          <input
+          <textarea
             name="comment"
-            type="text"
-            className="input w-full"
-            placeholder="Comment"
+            className="textarea w-full"
+            placeholder="Your review comment"
+            rows="3"
+            required
           />
 
           <button className="btn text-white bg-yellow-500 hover:bg-yellow-600 mt-4">
-            Review
+            Submit Review
           </button>
         </fieldset>
       </form>
