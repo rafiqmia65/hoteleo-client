@@ -11,6 +11,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Loader from "../pages/Shared/Loader/Loader";
 import PrivateRoutes from "./PrivateRoutes";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,14 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: async () => {
+          const res = await axios.get(
+            `${import.meta.env.VITE_serverURL}/top-rated-room`
+          );
+          return res.data;
+        },
         element: <Home></Home>,
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "aboutUs",

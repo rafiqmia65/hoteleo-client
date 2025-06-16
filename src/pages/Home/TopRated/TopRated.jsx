@@ -1,20 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
-import axios from "axios";
+import { Link, useLoaderData } from "react-router";
 
 const TopRated = () => {
-  const [topRooms, setTopRooms] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_serverURL}/top-rated-room`)
-      .then((res) => {
-        setTopRooms(res.data);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch top rated rooms", err);
-      });
-  }, []);
+  const topRatedRooms = useLoaderData();
 
   return (
     <div className="bg-gradient-to-br from-yellow-50 to-white">
@@ -32,7 +19,7 @@ const TopRated = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {topRooms.map((room) => (
+          {topRatedRooms.map((room) => (
             <div
               key={room._id}
               className="rounded-2xl shadow-lg overflow-hidden bg-white hover:shadow-xl transition"
