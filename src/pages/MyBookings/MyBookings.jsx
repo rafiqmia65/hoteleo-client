@@ -7,28 +7,41 @@ import { FaRegCalendarTimes } from "react-icons/fa";
 import BookingDateUpdate from "./BookingDateUpdate/BookingDateUpdate";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import moment from "moment";
+import useBookingApi from "../../api/useBookingApi";
 
 const MyBookings = () => {
   const { user } = useAuth();
   const [myBookingData, setMyBookingData] = useState([]);
   const [selectedRoomId, setSelectedRoomId] = useState(null);
 
+  const { getMyBookings } = useBookingApi();
+
   useEffect(() => {
     if (user?.email) {
-      axios
-        .get(
-          `${import.meta.env.VITE_serverURL}/my-bookings?email=${user.email}`
-        )
-        .then((res) => {
-          setMyBookingData(res.data);
+      getMyBookings(user.email)
+        .then((data) => {
+          setMyBookingData(data);
         })
         .catch((err) => {
           console.error("Error fetching bookings:", err);
         });
     }
-  }, [user]);
+  }, [user, getMyBookings]);
 
-  const handleBookingCancel = (bookingId, roomId, idx) => {
+  const handleBookingCancel = (bookingId, roomId, idx, bookingDate) => {
+    const today = moment();
+    const targetDate = moment(bookingDate);
+    const diff = targetDate.diff(today, "days");
+
+    if (diff < 1) {
+      return Swal.fire({
+        icon: "error",
+        title: "Cancellation not allowed",
+        text: "You can only cancel bookings at least 1 day in advance.",
+      });
+    }
+
     Swal.fire({
       title: "Are you sure?",
       text: "You want to cancel this booking?",
@@ -141,7 +154,8 @@ const MyBookings = () => {
                             handleBookingCancel(
                               booking.bookingId,
                               booking.roomId,
-                              idx
+                              idx,
+                              booking.date
                             )
                           }
                           className="inline-flex items-center gap-1 mb-3 lg:mb-0 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow cursor-pointer"

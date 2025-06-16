@@ -6,6 +6,7 @@ import Services from "./Services/Services";
 import { Helmet } from "react-helmet";
 import TopRated from "./TopRated/TopRated";
 import ReviewsSection from "./ReviewsSection/ReviewsSection";
+import SpecialOfferPopup from "./SpecialOfferPopup/SpecialOfferPopup";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Helmet>
         <title>Hoteleo - Home</title>
       </Helmet>
+      <SpecialOfferPopup></SpecialOfferPopup>
       <Banner></Banner>
       <TopRated></TopRated>
       <Services></Services>
