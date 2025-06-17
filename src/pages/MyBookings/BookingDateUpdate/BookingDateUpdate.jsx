@@ -1,39 +1,36 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import axios from "axios";
 import DatePicker from "react-datepicker";
 import useAuth from "../../../Hook/useAuth";
+import useUpdateApi from "../../../api/useUpdateApi";
 
 const BookingDateUpdate = ({ roomId, onSuccess, bookingId, idx }) => {
   const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(null);
   const [emptyDate, setEmptyDate] = useState("");
 
+  const { getUpdateBooking } = useUpdateApi();
+
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log("Selected Date:", selectedDate);
-    console.log(user.email);
-    console.log(roomId);
 
     if (!selectedDate) {
       return setEmptyDate("Please select a date");
     }
 
-    axios
-      .patch(`${import.meta.env.VITE_serverURL}/booking-date-update`, {
-        roomId,
-        bookingId,
-        newDate: selectedDate.toISOString(),
-      })
+    getUpdateBooking(user.email, {
+      roomId,
+      bookingId,
+      newDate: selectedDate.toISOString(),
+    })
       .then((response) => {
         if (response.data.success) {
           onSuccess(selectedDate.toISOString());
           Swal.fire("Updated!", response.data.message, "success");
-          document.getElementById(`update_modal_${idx}`).close();
         } else {
           Swal.fire("Failed!", response.data.message, "error");
-          document.getElementById(`update_modal_${idx}`).close();
         }
+        document.getElementById(`update_modal_${idx}`).close();
       })
       .catch((error) => {
         Swal.fire(error.message, "Something went wrong", "error");

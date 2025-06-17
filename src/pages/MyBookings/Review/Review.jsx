@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import useAuth from "../../../Hook/useAuth";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useReviewApi from "../../../api/useReviewApi";
 
 const Review = ({ roomId }) => {
   const { user } = useAuth();
   const [ratingError, setRatingError] = useState("");
+
+  const { getReviewRoom } = useReviewApi();
 
   const handleReview = async (e) => {
     e.preventDefault();
@@ -28,8 +30,7 @@ const Review = ({ roomId }) => {
       date: new Date().toISOString(),
     };
 
-    axios
-      .patch(`${import.meta.env.VITE_serverURL}/review/${roomId}`, { review })
+    getReviewRoom(roomId, review)
       .then((response) => {
         if (response.data.success) {
           Swal.fire("Thanks!", "Your review has been submitted.", "success");

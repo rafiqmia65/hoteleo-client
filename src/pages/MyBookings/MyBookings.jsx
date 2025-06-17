@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hook/useAuth";
 import { FaTrash, FaEdit, FaStar } from "react-icons/fa";
@@ -9,11 +8,14 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import moment from "moment";
 import useBookingApi from "../../api/useBookingApi";
+import useCancelApi from "../../api/useCancelApi";
 
 const MyBookings = () => {
   const { user } = useAuth();
   const [myBookingData, setMyBookingData] = useState([]);
   const [selectedRoomId, setSelectedRoomId] = useState(null);
+
+  const { getCancelBooking } = useCancelApi();
 
   const { getMyBookings } = useBookingApi();
 
@@ -52,10 +54,7 @@ const MyBookings = () => {
       confirmButtonText: "Yes, cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`${import.meta.env.VITE_serverURL}/booking-cancel`, {
-            data: { bookingId, roomId },
-          })
+        getCancelBooking(user.email, { bookingId, roomId })
           .then((res) => {
             if (res.data.success) {
               Swal.fire(

@@ -14,19 +14,17 @@ const useAxiosSecure = () => {
     return config;
   });
 
-  // response interceptor
   axiosInstance.interceptors.response.use(
-    (response) => {
-      return response;
-    },
+    (response) => response,
     (error) => {
-      if (error.status === 401 || error.status === 403) {
+      const status = error.response?.status;
+      if (status === 401 || status === 403) {
         logOut()
           .then(() => {
-            console.log("sign out user for 401 status code");
+            console.log("Signed out due to unauthorized access.");
           })
           .catch((err) => {
-            console.log(err);
+            console.error("Logout error:", err);
           });
       }
       return Promise.reject(error);
