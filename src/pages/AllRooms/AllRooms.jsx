@@ -56,7 +56,7 @@ const AllRooms = () => {
                   <option value="All">All</option>
                   <option value="0-1000">0 - 1000</option>
                   <option value="1001-1500">1001 - 1500</option>
-                  <option value="1501+">1501 +</option>
+                  <option value="1500+">1500 +</option>
                 </select>
                 <button
                   className="btn bg-yellow-500 border-yellow-500 text-white border-l-0 rounded-l-none"
