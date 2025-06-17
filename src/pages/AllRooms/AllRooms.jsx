@@ -51,6 +51,7 @@ const AllRooms = () => {
               <div className="flex ">
                 <select
                   name="budget"
+                  defaultValue="All"
                   className="select cursor-pointer select-bordered border-yellow-400 text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-300"
                 >
                   <option value="All">All</option>
