@@ -45,6 +45,8 @@ Edit
 npm run dev
 Open http://localhost:5173 to view it in your browser.
 
+```
+
 🌟 Features
 ⚛️ Built with React 19 and Vite for blazing-fast performance
 
