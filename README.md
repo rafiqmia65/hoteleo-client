@@ -90,21 +90,28 @@ hoteleo-client/
 ├── index.html
 ├── tailwind.config.js
 └── vite.config.js
-🛠️ Technologies Used
-Technology	Purpose
-React 19	Frontend framework
-Vite	Fast bundler & dev server
-Tailwind CSS 4	Utility-first styling
-DaisyUI	Styled component library
-Firebase	Authentication & backend
-Axios	API communication
-React Router 7	Client-side routing
-SweetAlert2	User-friendly alerts
-React Icons	Icon support
-Lottie React	Animated illustrations
-React Datepicker	User-friendly date picking
-Framer Motion	Modern UI animation
-React Helmet	SEO meta tag management
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology         | Purpose                        |
+|--------------------|---------------------------------|
+| React 19           | Frontend framework              |
+| Vite               | Fast bundler & dev server       |
+| Tailwind CSS 4     | Utility-first styling           |
+| DaisyUI            | Styled component library        |
+| Firebase           | Authentication & backend        |
+| Axios              | API communication               |
+| React Router 7     | Client-side routing             |
+| SweetAlert2        | User-friendly alerts            |
+| React Icons        | Icon support                    |
+| Lottie React       | Animated illustrations          |
+| React Datepicker   | User-friendly date picking      |
+| Framer Motion      | Modern UI animation             |
+| React Helmet       | SEO meta tag management         |
+
+---
 
 👨‍💻 Author
 Md Rafiq Mia
