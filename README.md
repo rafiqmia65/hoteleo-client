@@ -21,38 +21,50 @@ This is the **client-side** of the Hoteleo project, built with the latest fronte
 ```bash
 git clone https://github.com/rafiqmia65/hoteleo-client.git
 cd hoteleo-client
-
+2️⃣ Install Dependencies
+bash
+Copy
+Edit
 npm install
+3️⃣ Add Environment Variables
+Create a .env file in the root folder and insert your Firebase credentials:
 
-VITE_API_KEY=your_api_key
-VITE_AUTH_DOMAIN=your_auth_domain
-VITE_PROJECT_ID=your_project_id
-VITE_STORAGE_BUCKET=your_storage_bucket
-VITE_MESSAGING_SENDER_ID=your_sender_id
-VITE_APP_ID=your_app_id
-
+env
+Copy
+Edit
+VITE_API_KEY=your_api_key  
+VITE_AUTH_DOMAIN=your_auth_domain  
+VITE_PROJECT_ID=your_project_id  
+VITE_STORAGE_BUCKET=your_storage_bucket  
+VITE_MESSAGING_SENDER_ID=your_sender_id  
+VITE_APP_ID=your_app_id  
+4️⃣ Run Development Server
+bash
+Copy
+Edit
 npm run dev
+Open http://localhost:5173 to view it in your browser.
 
 🌟 Features
 ⚛️ Built with React 19 and Vite for blazing-fast performance
 
-🎨 Tailwind CSS 4 and DaisyUI for elegant and responsive UI
+🎨 Styled using Tailwind CSS 4 and DaisyUI
 
 🔐 Firebase Authentication (Email/Password + Google)
 
-🗓️ Dynamic room filtering with date and price range
+🗓️ Dynamic room filtering by date and price
 
 📷 Masonry-style photo gallery with Lightbox preview
 
-📍 Interactive map integration using React Leaflet
+📍 Map integration with React Leaflet
 
 📦 Secure API calls using Axios
 
-🔔 Alerts & notifications with SweetAlert2
+🔔 Beautiful alerts with SweetAlert2
 
-🗖️ Date selection using React Datepicker
+🗖 Date selection using React Datepicker
 
-🎥 Smooth animations with Framer Motion
+🎥 Animations with Framer Motion
 
 🌐 SEO-ready using React Helmet
 
@@ -96,8 +108,3 @@ React Helmet	SEO meta tag management
 Md Rafiq Mia
 Frontend React Developer | MERN Stack Enthusiast
 📧 Email: rafiqdeveloper4465@gmail.com
-
-
-
-
-```
