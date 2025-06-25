@@ -38,6 +38,9 @@ VITE_PROJECT_ID=your_project_id
 VITE_STORAGE_BUCKET=your_storage_bucket  
 VITE_MESSAGING_SENDER_ID=your_sender_id  
 VITE_APP_ID=your_app_id  
+
+VITE_serverURL= https://hoteleo-server.vercel.app
+
 4️⃣ Run Development Server
 bash
 Copy
