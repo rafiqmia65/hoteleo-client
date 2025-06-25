@@ -70,7 +70,7 @@ Open http://localhost:5173 to view it in your browser.
 
 🌐 SEO-ready using React Helmet
 
-📁 Folder Structure
+## 📁 Folder Structure
 arduino
 Copy
 Edit
