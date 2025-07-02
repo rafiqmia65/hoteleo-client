@@ -3,14 +3,14 @@ import { NavLink } from "react-router";
 
 const CardView = ({ room }) => {
   return (
-    <NavLink to={`/roomDetails/${room._id}`}>
-      <div className="bg-white rounded-2xl border border-yellow-200 hover:shadow-2xl transition-all duration-300 overflow-hidden">
+    <NavLink to={`/roomDetails/${room._id}`} className="h-full">
+      <div className="bg-white rounded-2xl border border-yellow-200 hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
         <img
           src={room.image}
           alt={room.title}
-          className="w-full h-52 object-cover"
+          className="w-full h-48 object-cover"
         />
-        <div className="p-5 space-y-3">
+        <div className="p-5 space-y-3 flex flex-col flex-grow">
           <h3 className="text-xl font-semibold text-slate-800">{room.title}</h3>
           <p className="text-sm text-gray-600 line-clamp-2">
             {room.description}
@@ -30,7 +30,7 @@ const CardView = ({ room }) => {
             {room.features.slice(0, 3).join(", ")}...
           </div>
 
-          <div className="flex justify-between items-center pt-2">
+          <div className="flex justify-between items-center pt-2 mt-auto">
             <span
               className={`px-3 py-1 rounded-full text-xs font-semibold ${
                 room.availability

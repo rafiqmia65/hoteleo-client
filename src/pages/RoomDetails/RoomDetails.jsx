@@ -126,7 +126,7 @@ const RoomDetails = () => {
         {room.reviews.length ? (
           <div className="space-y-3">
             {room.reviews.map((review, idx) => (
-              <div key={idx} className="border p-3 rounded-lg bg-base-200">
+              <div key={idx} className="border p-3 rounded-lg bg-yellow-50">
                 <p className="text-sm text-gray-800">{review.comment}</p>
                 <p className="text-xs text-yellow-600">
                   — {review.userName || review.name}

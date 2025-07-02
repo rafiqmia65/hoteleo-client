@@ -10,7 +10,7 @@ const TopRated = () => {
           Top Rated Rooms
         </h2>
 
-        <p className="text-center max-w-3xl mx-auto text-gray-600 mb-10">
+        <p className="text-center max-w-5xl mx-auto text-gray-600 mb-10">
           Discover our top-rated rooms, handpicked based on guest reviews and
           satisfaction. Each suite offers exceptional comfort, premium
           amenities, and an unforgettable stay experience. Whether you're

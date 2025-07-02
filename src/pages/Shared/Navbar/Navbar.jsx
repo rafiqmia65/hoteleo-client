@@ -49,7 +49,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-base-200 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-yellow-50 shadow-sm">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -101,10 +101,10 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex gap-3">
-              <NavLink className="btn btn-primary" to={"/login"}>
+              <NavLink className="btn bg-yellow-500 text-white" to={"/login"}>
                 Login
               </NavLink>
-              <NavLink className="btn btn-secondary" to={"/signUp"}>
+              <NavLink className="btn bg-yellow-600 text-white" to={"/signUp"}>
                 SignUp
               </NavLink>
             </div>

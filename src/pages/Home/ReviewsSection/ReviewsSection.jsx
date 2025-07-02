@@ -35,7 +35,7 @@ const ReviewsSection = () => {
         >
           {reviews.map((review, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white shadow-md rounded-xl p-6">
+              <div className="bg-yellow-50 shadow-md rounded-xl p-6">
                 <img
                   src={review.roomImage}
                   alt={review.roomTitle}

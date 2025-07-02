@@ -84,7 +84,7 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="pt-30 pb-16">
+    <div className="pt-30 pb-16 bg-gradient-to-br from-yellow-50 to-white">
       <Helmet>
         <title>Hoteleo - My Bookings</title>
       </Helmet>

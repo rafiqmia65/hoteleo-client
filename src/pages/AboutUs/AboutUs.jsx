@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 const AboutUs = () => {
   return (
-    <div className="bg-base-200 pt-28 pb-20 px-4 lg:px-20 text-gray-800">
+    <div className="bg-gradient-to-br from-yellow-50 to-white pt-28 pb-20 px-4 lg:px-20 text-gray-800">
       <Helmet>
         <title>Hoteleo - About Us</title>
       </Helmet>
