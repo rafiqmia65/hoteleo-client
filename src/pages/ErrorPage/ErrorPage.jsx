@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-50 to-white p-4">
       <Helmet>
         <title>Hoteleo - page not found</title>
       </Helmet>

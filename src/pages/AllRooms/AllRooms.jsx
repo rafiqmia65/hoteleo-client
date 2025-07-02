@@ -39,7 +39,7 @@ const AllRooms = () => {
   };
 
   return (
-    <div className="min-h-screen pt-30 pb-14 bg-base-200">
+    <div className="min-h-screen pt-30 pb-14 bg-gradient-to-br from-yellow-50 to-white">
       <Helmet>
         <title>Hoteleo - All Rooms</title>
       </Helmet>
@@ -122,7 +122,7 @@ const AllRooms = () => {
 
             {/* Grid View */}
             <TabPanel>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {filteredRooms.map((room) => (
                   <CardView key={room._id} room={room} />
                 ))}

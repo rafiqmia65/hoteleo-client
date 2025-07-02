@@ -88,7 +88,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen pt-30 pb-10  flex items-center justify-center p-6">
+    <div className="min-h-screen pt-30 pb-10 bg-gradient-to-br from-yellow-50 to-white flex items-center justify-center p-6">
       <Helmet>
         <title>Hoteleo - SignUp</title>
       </Helmet>
