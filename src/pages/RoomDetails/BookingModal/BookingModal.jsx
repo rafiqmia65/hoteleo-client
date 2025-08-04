@@ -9,101 +9,106 @@ const BookingModal = ({ room, setRoomData }) => {
   const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(null);
 
-  const handleBookRoom = (e) => {
-    e.preventDefault();
+const handleBookRoom = async (e) => {
+  e.preventDefault();
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
+  if (!selectedDate) {
+    document.getElementById("my_modal_5").close();
+    return Swal.fire({
+      icon: "warning",
+      title: "Please select a date!"
+    });
+  }
 
-    const bookingInfo = { name, email, date: selectedDate.toISOString() };
+  const name = e.target.name.value;
+  const email = e.target.email.value;
+  const bookingInfo = { name, email, date: selectedDate.toISOString() };
 
-    axios
-      .patch(
-        `${import.meta.env.VITE_serverURL}/book-room/${room._id}`,
-        bookingInfo
-      )
-      .then((result) => {
-        if (result.data.modifiedCount) {
-          setRoomData((prev) => ({
-            ...prev,
-            availability: false,
-            bookedDates: [...(prev.bookedDates || []), bookingInfo],
-          }));
+  // Close modal before API call
+  document.getElementById("my_modal_5").close();
 
-          Swal.fire({
-            icon: "success",
-            title: "Booking Confirmed!",
-            text: "Your room has been booked successfully.",
-          });
+  try {
+    const result = await axios.patch(
+      `${import.meta.env.VITE_serverURL}/book-room/${room._id}`,
+      bookingInfo
+    );
 
-          document.getElementById("my_modal_5").close();
-        }
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Error!",
-          text: error?.response?.data?.message || "Something went wrong.",
-        });
-        document.getElementById("my_modal_5").close();
+    if (result.data.success) {
+      await Swal.fire({
+        icon: "success",
+        title: "Booking Confirmed!",
+        text: "Your room has been booked successfully."
       });
-  };
+
+      // UI instantly update using backend returned updated room
+      setRoomData(result.data.room);
+    } else {
+      await Swal.fire({
+        icon: "error",
+        title: result.data.message || "Booking failed!"
+      });
+    }
+  } catch (error) {
+    await Swal.fire({
+      icon: "error",
+      title: "Error!",
+      text: error?.response?.data?.message || "Something went wrong."
+    });
+  }
+};
+
 
   return (
     <div>
-      <div className="">
-        <div>
-          <p>
-            <strong>Title:</strong> {room.title}
-          </p>
-          <p>
-            <strong>Price:</strong> ${room.price}
-          </p>
-          <p>
-            <strong>Description:</strong> {room.description}
-          </p>
-          <div className="mt-4">
-            <form onSubmit={handleBookRoom}>
-              <fieldset className="fieldset">
-                <label className="block mb-1 text-sm font-medium">Name</label>
-                <input
-                  name="name"
-                  defaultValue={user?.displayName}
-                  type="text"
-                  className="input w-full"
-                  placeholder="Name"
-                  readOnly
-                />
-                <label className="block mb-1 text-sm font-medium">Email</label>
-                <input
-                  name="email"
-                  defaultValue={user?.email}
-                  type="email"
-                  className="input w-full"
-                  placeholder="Email"
-                  readOnly
-                />
-                <label className="block mb-1 text-sm font-medium">
-                  Select Booking Date
-                </label>
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  className="input input-bordered w-full border-yellow-400"
-                  minDate={new Date()}
-                  placeholderText="Choose a date"
-                />
-                <button
-                  type="submit"
-                  className="btn bg-yellow-500 hover:bg-yellow-600 text-white mt-4"
-                >
-                  Book Room
-                </button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
+      <p>
+        <strong>Title:</strong> {room.title}
+      </p>
+      <p>
+        <strong>Price:</strong> ${room.price}
+      </p>
+      <p>
+        <strong>Description:</strong> {room.description}
+      </p>
+
+      <form onSubmit={handleBookRoom} className="mt-4">
+        <fieldset className="fieldset">
+          <label className="block mb-1 text-sm font-medium">Name</label>
+          <input
+            name="name"
+            defaultValue={user?.displayName}
+            type="text"
+            className="input w-full"
+            readOnly
+          />
+
+          <label className="block mb-1 text-sm font-medium">Email</label>
+          <input
+            name="email"
+            defaultValue={user?.email}
+            type="email"
+            className="input w-full"
+            readOnly
+          />
+
+          <label className="block mb-1 text-sm font-medium">
+            Select Booking Date
+          </label>
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            className="input input-bordered w-full border-yellow-400"
+            minDate={new Date()}
+            placeholderText="Choose a date"
+          />
+
+          <button
+            type="submit"
+            className="btn bg-yellow-500 hover:bg-yellow-600 text-white mt-4"
+          >
+            Book Room
+          </button>
+        </fieldset>
+      </form>
     </div>
   );
 };
