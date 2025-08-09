@@ -60,39 +60,39 @@ const Review = ({ roomId }) => {
 
   return (
     <div>
-      <h3 className="font-medium text-yellow-600 text-lg">
+      <h3 className="font-medium text-accent text-lg">
         Give a Review of this Room!
       </h3>
       <form onSubmit={handleReview}>
         <fieldset className="fieldset mt-5">
-          <label className="label">Name</label>
+          <label className="label text-accent">Name</label>
           <input
             name="name"
             defaultValue={user?.displayName || ""}
             type="text"
-            className="input w-full"
+            className="input w-full bg-secondary"
             placeholder="Name"
             readOnly
             required
           />
 
-          <label className="label">Rating</label>
+          <label className="label text-accent">Rating</label>
           <input
             name="rating"
             type="number"
             min="1"
             max="5"
             step="0.1"
-            className="input w-full"
+            className="input w-full bg-secondary"
             placeholder="Rating (1 to 5)"
             required
           />
           {ratingError && <p className="text-sm text-red-400">{ratingError}</p>}
 
-          <label className="label">Comment</label>
+          <label className="label text-accent">Comment</label>
           <textarea
             name="comment"
-            className="textarea w-full"
+            className="textarea w-full bg-secondary"
             placeholder="Your review comment"
             rows="3"
             required

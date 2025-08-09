@@ -33,7 +33,10 @@ const ContactUs = () => {
         transition={{ duration: 0.5 }}
       >
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-text">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-accent"
+          >
             Name
           </label>
           <input
@@ -43,14 +46,14 @@ const ContactUs = () => {
             autoComplete="name"
             placeholder="Name"
             required
-            className="mt-1 p-3 block w-full shadow-sm border border-accent rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+            className="mt-1 p-3 block w-full shadow-sm border rounded-md focus:ring-yellow-500 focus:border-yellow-500"
           />
         </div>
 
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-text"
+            className="block text-sm font-medium text-accent"
           >
             Email address
           </label>
@@ -61,14 +64,14 @@ const ContactUs = () => {
             autoComplete="email"
             placeholder="Email"
             required
-            className="mt-1 p-3 block w-full shadow-sm border border-accent rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+            className="mt-1 p-3 block w-full shadow-sm border rounded-md focus:ring-yellow-500 focus:border-yellow-500"
           />
         </div>
 
         <div>
           <label
             htmlFor="subject"
-            className="block text-sm font-medium text-text"
+            className="block text-sm font-medium text-accent"
           >
             Subject
           </label>
@@ -78,14 +81,14 @@ const ContactUs = () => {
             id="subject"
             placeholder="Subject"
             required
-            className="mt-1 p-3 block w-full shadow-sm border border-accent rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+            className="mt-1 p-3 block w-full shadow-sm border  rounded-md focus:ring-yellow-500 focus:border-yellow-500"
           />
         </div>
 
         <div>
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-text"
+            className="block text-sm font-medium text-accent"
           >
             Message
           </label>
@@ -95,7 +98,7 @@ const ContactUs = () => {
             rows={5}
             placeholder="Message"
             required
-            className="mt-1 p-3 block w-full shadow-sm border border-accent rounded-md focus:ring-yellow-500 focus:border-yellow-500"
+            className="mt-1 p-3 block w-full shadow-sm border  rounded-md focus:ring-yellow-500 focus:border-yellow-500"
           ></textarea>
         </div>
 

@@ -40,17 +40,19 @@ const BookingDateUpdate = ({ roomId, onSuccess, bookingId, idx }) => {
 
   return (
     <div>
-      <h3 className="font-medium text-yellow-600 text-lg">
+      <h3 className="font-medium text-text text-lg">
         Give a Review of this Room!
       </h3>
 
       <form onSubmit={handleUpdate}>
         <fieldset className="fieldset mt-10">
-          <label className="label">Select Update Date</label>
+          <label className="label text-accent text-lg">
+            Select Update Date
+          </label>
           <DatePicker
             selected={selectedDate}
             onChange={(date) => setSelectedDate(date)}
-            className="input input-bordered w-full border-yellow-400"
+            className="input input-bordered w-full bg-secondary"
             minDate={new Date()}
             placeholderText="Choose a date"
           />

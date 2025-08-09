@@ -17,10 +17,10 @@ const DarkLightMode = () => {
 
   return (
     <button
-      className={`btn bg-primary border-yellow-500 btn-sm rounded-full text-text`}
+      className={`btn bg-secondary border-accent btn-sm rounded-full text-text`}
       onClick={toggleTheme}
     >
-      {theme === "light" ? <FaMoon /> : <FaSun />}
+      {theme === "light" ? <FaMoon className="text-accent" /> : <FaSun />}
     </button>
   );
 };

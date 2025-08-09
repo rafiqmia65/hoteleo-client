@@ -95,8 +95,8 @@ const RoomDetails = () => {
                   id="my_modal_5"
                   className="modal modal-bottom sm:modal-middle"
                 >
-                  <div className="modal-box">
-                    <h3 className="text-2xl text-yellow-500 font-bold mb-4">
+                  <div className="modal-box bg-secondary">
+                    <h3 className="text-2xl text-accent font-bold mb-4">
                       Booking Summary
                     </h3>
                     <BookingModal
@@ -105,7 +105,9 @@ const RoomDetails = () => {
                     ></BookingModal>
                     <div className="modal-action">
                       <form method="dialog">
-                        <button className="btn">Close</button>
+                        <button className="btn border bg-secondary hover:bg-accent border-accent text-text">
+                          Close
+                        </button>
                       </form>
                     </div>
                   </div>

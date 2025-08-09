@@ -105,6 +105,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
+          <div className="mr-3">
+            <DarkLightMode></DarkLightMode>
+          </div>
           {user ? (
             <div className="flex gap-3">
               <img
@@ -121,7 +124,6 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex gap-3 items-center">
-              <DarkLightMode></DarkLightMode>
               <div className="hidden lg:block">
                 <NavLink
                   className="btn border-yellow-500 bg-transparent text-text hover:bg-accent hover:text-white mr-3"

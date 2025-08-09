@@ -84,7 +84,7 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="pt-30 pb-16 bg-gradient-to-br from-yellow-50 to-white">
+    <div className="pt-30 pb-16 bg-primary">
       <Helmet>
         <title>Hoteleo - My Bookings</title>
       </Helmet>
@@ -93,22 +93,22 @@ const MyBookings = () => {
           <>
             <div className="flex flex-col justify-center items-center h-[calc(100vh-200px)] text-center px-4">
               <FaRegCalendarTimes className="text-yellow-500 text-6xl mb-4" />
-              <h2 className="text-2xl font-semibold text-gray-700 mb-2">
+              <h2 className="text-2xl font-semibold text-text mb-2">
                 You haven't booked any rooms yet.
               </h2>
-              <p className="text-gray-500">
+              <p className="text-text">
                 Please browse rooms and make your first booking.
               </p>
             </div>
           </>
         ) : (
           <>
-            <h2 className="text-3xl font-bold text-center text-yellow-600 mb-6">
+            <h2 className="text-3xl text-accent font-bold text-center text-text mb-6">
               My Bookings
             </h2>
             <div className="overflow-x-auto rounded-lg shadow-lg">
-              <table className="w-full text-sm text-left text-gray-800 border border-yellow-500">
-                <thead className="bg-yellow-100 text-gray-900 uppercase text-sm">
+              <table className="w-full text-sm text-left text-text border border-yellow-500">
+                <thead className="bg-secondary text-text uppercase text-sm">
                   <tr>
                     <th className="px-6 py-4 border-b border-yellow-500">
                       Image
@@ -129,7 +129,7 @@ const MyBookings = () => {
                     <tr
                       key={idx}
                       className={`${
-                        idx % 2 === 0 ? "bg-yellow-50" : "bg-yellow-100"
+                        idx % 2 === 0 ? "bg-primary" : "bg-secondary"
                       }`}
                     >
                       <td className="px-6 py-4 border-b border-yellow-500">
@@ -176,7 +176,7 @@ const MyBookings = () => {
                           id={`update_modal_${idx}`}
                           className="modal modal-bottom sm:modal-middle"
                         >
-                          <div className="modal-box">
+                          <div className="modal-box bg-secondary">
                             <BookingDateUpdate
                               roomId={booking.roomId}
                               bookingId={booking.bookingId}
@@ -189,7 +189,9 @@ const MyBookings = () => {
                             />
                             <div className="modal-action">
                               <form method="dialog">
-                                <button className="btn">Close</button>
+                                <button className="btn border border-accent bg-secondary hover:bg-accent">
+                                  Close
+                                </button>
                               </form>
                             </div>
                           </div>
@@ -213,11 +215,13 @@ const MyBookings = () => {
 
       {/* Single review modal outside the table */}
       <dialog id="review_modal" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
+        <div className="modal-box bg-secondary">
           {selectedRoomId && <Review roomId={selectedRoomId} />}
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn">Close</button>
+              <button className="btn border-accent bg-secondary hover:bg-accent">
+                Close
+              </button>
             </form>
           </div>
         </div>
