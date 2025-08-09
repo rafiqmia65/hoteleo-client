@@ -68,7 +68,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-primary shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-[1000] bg-primary shadow-sm">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -91,7 +91,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-primary rounded-box z-[999] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>

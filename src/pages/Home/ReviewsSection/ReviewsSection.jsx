@@ -16,14 +16,12 @@ const ReviewsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-yellow-50 to-white">
-      <div className="max-w-5xl mx-auto px-5 lg:px-0 text-center">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-6">
+    <section className="py-16 bg-primary">
+      <div className="max-w-3xl mx-auto px-5 lg:px-0 text-center">
+        <h2 className="text-3xl font-semibold text-accent mb-6">
           What Our Guests Say
         </h2>
-        <p className="text-gray-600 mb-10">
-          Real reviews from our happy customers
-        </p>
+        <p className="text-text mb-10">Real reviews from our happy customers</p>
 
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -35,20 +33,18 @@ const ReviewsSection = () => {
         >
           {reviews.map((review, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-yellow-50 shadow-md rounded-xl p-6">
+              <div className="bg-secondary shadow-md rounded-xl p-6">
                 <img
                   src={review.roomImage}
                   alt={review.roomTitle}
-                  className="h-[250px] w-full"
+                  className="max-h-[150px] max-w-[400px] mx-auto rounded-2xl"
                 />
-                <p className="text-gray-700 italic mb-3 mt-5">
-                  "{review.comment}"
-                </p>
-                <div className="flex items-center justify-center gap-2 text-yellow-500 mb-2">
+                <p className="text-text italic mb-3 mt-5">"{review.comment}"</p>
+                <div className="flex items-center justify-center gap-2 text-accent mb-2">
                   {"★".repeat(review.rating)}
                   {"☆".repeat(5 - review.rating)}
                 </div>
-                <p className="text-sm text-gray-500 mb-5">
+                <p className="text-sm text-text mb-5">
                   — <span className="font-medium">{review.name}</span> on{" "}
                   <strong>{review.roomTitle}</strong>
                 </p>

@@ -10,25 +10,25 @@ import { NavLink } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-12 pb-6">
+    <footer className="bg-primary text-text pt-12 pb-6">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Branding */}
         <div>
           <div className="flex gap-2 items-center">
             <img className="w-16 h-16" src={logo} alt="Hoteleo" />
-            <h3 className="text-2xl font-bold">Hoteleo</h3>
+            <h3 className="text-2xl text-accent font-bold">Hoteleo</h3>
           </div>
-          <p className="text-base font-medium mt-3 text-gray-300">
+          <p className="text-base font-medium mt-3 text-text">
             Seamless hotel booking experience since 2010.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-yellow-400">
+          <h3 className="text-lg font-semibold mb-4 text-accent">
             Quick Links
           </h3>
-          <ul className="space-y-2 text-sm text-gray-300">
+          <ul className="space-y-2 text-sm text-text font-medium">
             <li>
               <NavLink to={"/"}>Home</NavLink>
             </li>
@@ -49,10 +49,8 @@ const Footer = () => {
 
         {/* Support */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-yellow-400">
-            Support
-          </h3>
-          <ul className="space-y-2 text-sm text-gray-300">
+          <h3 className="text-lg font-semibold mb-4 text-accent">Support</h3>
+          <ul className="space-y-2 text-sm text-text font-medium">
             <li>
               <a className="cursor-pointer">FAQ</a>
             </li>
@@ -67,27 +65,25 @@ const Footer = () => {
 
         {/* Social Media */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-yellow-400">
-            Follow Us
-          </h3>
+          <h3 className="text-lg font-semibold mb-4 text-accent">Follow Us</h3>
           <div className="flex space-x-4">
-            <a className="text-gray-300 cursor-pointer hover:text-yellow-400">
+            <a className="text-text cursor-pointer hover:text-accent">
               <FaFacebookF />
             </a>
-            <a className="text-gray-300 cursor-pointer hover:text-yellow-400">
+            <a className="text-text cursor-pointer hover:text-accent">
               <FaInstagram />
             </a>
-            <a className="text-gray-300 cursor-pointer hover:text-yellow-400">
+            <a className="text-text cursor-pointer hover:text-accent">
               <FaTwitter />
             </a>
-            <a className="text-gray-300 cursor-pointer hover:text-yellow-400">
+            <a className="text-text cursor-pointer hover:text-accent">
               <FaLinkedinIn />
             </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400">
+      <div className="border-t border-accent mt-8 pt-4 text-center text-sm text-accent font-semibold">
         &copy; {new Date().getFullYear()} Hoteleo. All rights reserved.
       </div>
     </footer>

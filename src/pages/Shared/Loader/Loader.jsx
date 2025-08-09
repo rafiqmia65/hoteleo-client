@@ -2,10 +2,10 @@ import logo from "../../../assets/favicon.png";
 
 const Loader = () => {
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-yellow-50 to-white transition-colors  duration-500">
+    <div className="h-screen w-full flex items-center justify-center bg-primary transition-colors  duration-500">
       <div className="flex flex-col items-center justify-center">
         <div className="relative">
-          <div className="w-24 h-24 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin shadow-2xl"></div>
+          <div className="w-24 h-24 border-4 border-accent border-t-transparent rounded-full animate-spin shadow-2xl"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-3xl font-extrabold  drop-shadow-lg animate-pulse">
               <img src={logo} className="w-10" alt="" />

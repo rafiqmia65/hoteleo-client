@@ -12,19 +12,19 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-gradient-to-br from-yellow-50 to-white py-16 px-4 md:px-10 lg:px-24">
+    <section className="bg-primary py-16 px-4 md:px-10 lg:px-24">
       <div className="container mx-auto px-5 lg:px-0 text-center">
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6"
+          className="text-4xl md:text-3xl font-extrabold text-text mb-6"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Why Choose <span className="text-yellow-500">Hoteleo?</span>
+          Why Choose <span className="text-accent">Hoteleo?</span>
         </motion.h2>
 
         <motion.p
-          className="text-gray-600 text-lg max-w-3xl mx-auto mb-10"
+          className="text-text max-w-3xl mx-auto mb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -43,8 +43,8 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 * index, duration: 0.5 }}
             >
-              <FiCheckCircle className="text-yellow-500 mt-1" size={24} />
-              <p className="text-gray-700 text-base">{feature}</p>
+              <FiCheckCircle className="text-accent mt-1" size={24} />
+              <p className="text-text text-base">{feature}</p>
             </motion.div>
           ))}
         </div>

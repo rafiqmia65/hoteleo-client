@@ -52,7 +52,7 @@ const Banner = () => {
               style={{ backgroundImage: `url('${slide.image}')` }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black/30 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black z-10" />
 
               {/* Animated Content */}
               <div className="relative z-20 flex items-center justify-center h-full px-4">

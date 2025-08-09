@@ -82,11 +82,11 @@ const Services = () => {
   ];
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-yellow-50 to-white">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-primary">
       <div className="container mx-auto px-5 lg:px-0">
         <div className="text-center mb-12">
           <motion.h2
-            className="text-base font-semibold text-yellow-600 tracking-wide uppercase"
+            className="text-base font-semibold text-accent tracking-wide uppercase"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -94,7 +94,7 @@ const Services = () => {
             Our Services
           </motion.h2>
           <motion.h3
-            className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl"
+            className="mt-2 text-3xl font-extrabold text-text sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -107,7 +107,7 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+              className="bg-secondary p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
               initial={
                 animationVariants[index % animationVariants.length].initial
               }
@@ -121,11 +121,11 @@ const Services = () => {
                 <div className="bg-yellow-100 p-3 rounded-full mr-4">
                   {service.icon}
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900">
+                <h4 className="text-xl font-semibold text-accent">
                   {service.title}
                 </h4>
               </div>
-              <p className="text-gray-600">{service.description}</p>
+              <p className="text-text">{service.description}</p>
             </motion.div>
           ))}
         </div>

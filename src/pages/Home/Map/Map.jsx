@@ -14,12 +14,12 @@ L.Icon.Default.mergeOptions({
 
 const Map = () => {
   return (
-    <div className="h-[400px] w-full">
+    <div className="h-[300px] w-full">
       <MapContainer
         center={[23.8103, 90.4125]}
         zoom={13}
         scrollWheelZoom={false}
-        className="h-full w-full rounded-lg shadow-md z-10"
+        className="h-full w-full rounded-lg shadow-md z-0"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
