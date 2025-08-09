@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router";
 import logo from "../../../assets/logo.png";
 import useAuth from "../../../Hook/useAuth";
 import Swal from "sweetalert2";
+import DarkLightMode from "./DarkLightMode/DarkLightMode";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
@@ -101,10 +102,17 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex gap-3">
-              <NavLink className="btn bg-yellow-500 text-white" to={"/login"}>
+              <DarkLightMode></DarkLightMode>
+              <NavLink
+                className="btn border-yellow-500 bg-transparent text-white"
+                to={"/login"}
+              >
                 Login
               </NavLink>
-              <NavLink className="btn bg-yellow-600 text-white" to={"/signUp"}>
+              <NavLink
+                className="btn border-yellow-600 bg-transparent text-white"
+                to={"/signUp"}
+              >
                 SignUp
               </NavLink>
             </div>

@@ -3,6 +3,24 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #fefce9;
+  --color-secondary: #fdfdf1;
+  --color-accent: #f0b100;
+  --color-text: #1e2939;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  --color-primary: #0f172a; 
+  --color-secondary: #1e293b;
+  --color-accent: #f0b100;
+  --color-text: #e2e8f0;
+}
+
 * {
   font-family: "Poppins", sans-serif;
 }
