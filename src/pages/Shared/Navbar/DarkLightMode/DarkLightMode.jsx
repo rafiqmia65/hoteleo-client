@@ -17,7 +17,7 @@ const DarkLightMode = () => {
 
   return (
     <button
-      className={`btn bg-yellow-50 border-yellow-500 btn-sm rounded-full text-yellow-700`}
+      className={`btn bg-primary border-yellow-500 btn-sm rounded-full text-text`}
       onClick={toggleTheme}
     >
       {theme === "light" ? <FaMoon /> : <FaSun />}

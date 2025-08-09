@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/favicon.png";
 import useAuth from "../../../Hook/useAuth";
 import Swal from "sweetalert2";
 import DarkLightMode from "./DarkLightMode/DarkLightMode";
@@ -34,9 +34,7 @@ const Navbar = () => {
       <li className="text-base font-bold">
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li className="text-base font-bold">
-        <NavLink to={"/aboutUs"}>About Us</NavLink>
-      </li>
+
       <li className="text-base font-bold">
         <NavLink to={"/allRooms"}>All Rooms</NavLink>
       </li>
@@ -46,11 +44,31 @@ const Navbar = () => {
       <li className="text-base font-bold">
         <NavLink to={"/contactUs"}>Contact Us</NavLink>
       </li>
+      <li className="text-base font-bold">
+        <NavLink to={"/aboutUs"}>About Us</NavLink>
+      </li>
+
+      <li className="hover:!bg-none lg:hidden">
+        <div className="flex items-center justify-between">
+          <NavLink
+            className="btn border-yellow-500 bg-none text-text hover:bg-accent hover:text-white"
+            to={"/login"}
+          >
+            Login
+          </NavLink>
+          <NavLink
+            className="btn border-yellow-600 bg-none text-text hover:bg-accent hover:text-white"
+            to={"/signUp"}
+          >
+            SignUp
+          </NavLink>
+        </div>
+      </li>
     </>
   );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-yellow-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-primary shadow-sm">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -73,13 +91,14 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <a className="cursor-pointer">
-            <img className="w-36 h-14" src={logo} alt="" />
+          <a className="cursor-pointer flex gap-2 items-center">
+            <img className="w-12 h-12" src={logo} alt="" />
+            <h2 className="mt-2 text-accent text-2xl font-bold">Hoteleo</h2>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -101,20 +120,22 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center">
               <DarkLightMode></DarkLightMode>
-              <NavLink
-                className="btn border-yellow-500 bg-transparent text-white"
-                to={"/login"}
-              >
-                Login
-              </NavLink>
-              <NavLink
-                className="btn border-yellow-600 bg-transparent text-white"
-                to={"/signUp"}
-              >
-                SignUp
-              </NavLink>
+              <div className="hidden lg:block">
+                <NavLink
+                  className="btn border-yellow-500 bg-transparent text-text hover:bg-accent hover:text-white mr-3"
+                  to={"/login"}
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  className="btn border-yellow-600 bg-transparent text-text hover:bg-accent hover:text-white"
+                  to={"/signUp"}
+                >
+                  SignUp
+                </NavLink>
+              </div>
             </div>
           )}
         </div>
