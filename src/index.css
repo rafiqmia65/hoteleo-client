@@ -10,6 +10,7 @@
   --color-secondary: #fefce9;
   --color-accent: #f0b100;
   --color-text: #1e2939;
+  --color-btn-hover: #d08700;
 }
 
 @plugin "daisyui/theme" {
@@ -19,6 +20,7 @@
   --color-secondary: #1e293b;
   --color-accent: #f0b100;
   --color-text: #e2e8f0;
+  --color-btn-hover: #d08700;
 }
 
 * {

@@ -52,7 +52,7 @@ const AllRooms = () => {
                 <select
                   name="budget"
                   defaultValue="All"
-                  className="select cursor-pointer select-bordered border-accent text-text focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                  className="select cursor-pointer select-bordered bg-primary border-accent text-text focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   <option value="All">All</option>
                   <option value="0-1000">0 - 1000</option>
@@ -60,7 +60,7 @@ const AllRooms = () => {
                   <option value="1500+">1500 +</option>
                 </select>
                 <button
-                  className="btn bg-accent border-accent text-white border-l-0 rounded-l-none"
+                  className="btn bg-accent border-accent -ml-1 text-white border-1-0 rounded-l-none"
                   type="submit"
                 >
                   Search

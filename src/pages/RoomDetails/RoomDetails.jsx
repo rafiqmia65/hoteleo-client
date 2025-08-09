@@ -20,7 +20,7 @@ const RoomDetails = () => {
   };
 
   return (
-    <div className="pt-30 bg-gradient-to-br px-5 lg:px-0 from-yellow-50 to-white pb-14 bg-base-100">
+    <div className="pt-30 bg-primary px-5 lg:px-0 pb-14">
       <Helmet>
         <title>Hoteleo - {room.title} details</title>
       </Helmet>
@@ -32,10 +32,8 @@ const RoomDetails = () => {
             className="rounded-lg w-full"
           />
 
-          <div className="text-gray-600 rounded-2xl shadow-xl p-8 space-y-6">
-            <h1 className="text-4xl font-bold text-yellow-600 dark:text-yellow-400">
-              {room.title}
-            </h1>
+          <div className="text-text bg-secondary rounded-2xl shadow-xl p-8 space-y-6">
+            <h1 className="text-4xl font-bold text-accent">{room.title}</h1>
             <p>{room.description}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
@@ -87,7 +85,7 @@ const RoomDetails = () => {
               <>
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <button
-                  className="btn bg-yellow-500 text-white"
+                  className="btn bg-accent hover:btn-hover text-white"
                   onClick={handleBookNow}
                 >
                   Book Now
@@ -126,9 +124,9 @@ const RoomDetails = () => {
         {room.reviews.length ? (
           <div className="space-y-3">
             {room.reviews.map((review, idx) => (
-              <div key={idx} className="border p-3 rounded-lg bg-yellow-50">
-                <p className="text-sm text-gray-800">{review.comment}</p>
-                <p className="text-xs text-yellow-600">
+              <div key={idx} className="border p-3 rounded-lg bg-secondary">
+                <p className="text-sm text-text">{review.comment}</p>
+                <p className="text-xs text-accent">
                   — {review.userName || review.name}
                 </p>
               </div>
