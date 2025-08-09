@@ -88,70 +88,70 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen pt-30 pb-10 bg-gradient-to-br from-yellow-50 to-white flex items-center justify-center p-6">
+    <div className="min-h-screen pt-30 pb-10 bg-primary flex items-center justify-center p-6">
       <Helmet>
         <title>Hoteleo - SignUp</title>
       </Helmet>
-      <div className=" p-8 rounded shadow-2xl w-full max-w-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center">SignUp Now!</h2>
+      <div className=" p-8 rounded-2xl bg-secondary text-text shadow-2xl w-full max-w-lg">
+        <h2 className="text-3xl font-bold mb-6 text-center">SignUp Now!</h2>
         <form onSubmit={handleSignUp} className="space-y-4">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text text-accent">Name</span>
             </label>
             <input
               name="name"
               type="text"
-              className="input input-bordered w-full"
+              className="input bg-secondary input-bordered w-full"
               placeholder="Email"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Photo Url</span>
+              <span className="label-text text-accent">Photo Url</span>
             </label>
             <input
               name="photoUrl"
               type="text"
-              className="input input-bordered w-full"
+              className="input bg-secondary input-bordered w-full"
               placeholder="Email"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-accent">Email</span>
             </label>
             <input
               name="email"
               type="email"
-              className="input input-bordered w-full"
+              className="input bg-secondary input-bordered w-full"
               placeholder="Email"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-accent">Password</span>
             </label>
             <input
               name="password"
               type="password"
-              className="input input-bordered w-full"
+              className="input bg-secondary input-bordered w-full"
               placeholder="Password"
               required
             />
           </div>
           {errorText && <p className="text-red-500 text-sm">{errorText}</p>}
-          <button className="btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold w-full mt-6">
+          <button className="btn bg-accent hover:bg-yellow-600 text-white font-semibold w-full mt-6">
             SignUp
           </button>
         </form>
         {/* Google */}
         <button
           onClick={handleGoogleAuth}
-          className="btn btn-secondary w-full mt-4"
+          className="btn bg-primary border border-accent w-full mt-4"
         >
           <svg
             aria-label="Google logo"
@@ -182,12 +182,9 @@ const SignUp = () => {
           </svg>
           SignUp with Google
         </button>
-        <p className="text-sm mt-3 text-gray-600">
+        <p className="text-sm mt-3 text-text">
           You have an account?{" "}
-          <Link
-            to="/login"
-            className="font-medium text-yellow-600 hover:text-yellow-500"
-          >
+          <Link to="/login" className="font-medium text-accent">
             Login
           </Link>
         </p>

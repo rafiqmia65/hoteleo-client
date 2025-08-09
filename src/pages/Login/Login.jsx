@@ -64,46 +64,46 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen pt-30 pb-10 bg-gradient-to-br from-yellow-50 to-white flex items-center justify-center p-6">
+    <div className="min-h-screen pt-30 pb-10 bg-primary flex items-center justify-center p-6">
       <Helmet>
         <title>Hoteleo - Login</title>
       </Helmet>
-      <div className=" p-8 rounded shadow-2xl w-full max-w-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login Now!</h2>
+      <div className=" p-8 bg-secondary rounded-2xl shadow-2xl w-full max-w-lg">
+        <h2 className="text-3xl font-bold mb-6 text-center">Login Now!</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-accent">Email</span>
             </label>
             <input
               name="email"
               type="email"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-secondary"
               placeholder="Email"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-accent">Password</span>
             </label>
             <input
               name="password"
               type="password"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-secondary"
               placeholder="Password"
               required
             />
           </div>
 
-          <button className="btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold w-full mt-6">
+          <button className="btn bg-accent hover:bg-yellow-600 text-white font-semibold w-full mt-6">
             Login
           </button>
         </form>
         {/* Google */}
         <button
           onClick={handleGoogleAuth}
-          className="btn btn-secondary w-full mt-4"
+          className="btn bg-primary border border-accent w-full mt-4"
         >
           <svg
             aria-label="Google logo"
@@ -134,12 +134,9 @@ const Login = () => {
           </svg>
           Login with Google
         </button>
-        <p className="text-sm mt-3 text-gray-600">
+        <p className="text-sm mt-3 text-text">
           Don't have an account?{" "}
-          <Link
-            to="/signUp"
-            className="font-medium text-yellow-600 hover:text-yellow-500"
-          >
+          <Link to="/signUp" className="font-medium text-accent ">
             SignUp
           </Link>
         </p>
