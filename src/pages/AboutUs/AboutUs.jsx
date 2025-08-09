@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 const AboutUs = () => {
   return (
-    <div className="bg-gradient-to-br from-yellow-50 to-white pt-28 pb-20 px-4 lg:px-20 text-gray-800">
+    <div className="bg-primary pt-28 pb-20 px-4 lg:px-20 text-text">
       <Helmet>
         <title>Hoteleo - About Us</title>
       </Helmet>
@@ -21,8 +21,10 @@ const AboutUs = () => {
             />
           </div>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
+          <div className="bg-secondary p-6 rounded-2xl">
+            <h2 className="text-2xl text-accent font-semibold mb-4">
+              Who We Are
+            </h2>
             <p className="mb-4">
               Hoteleo is a modern hotel booking platform, built to make your
               travel experience smooth, smart, and satisfying. Since 2010, we’ve
@@ -30,13 +32,17 @@ const AboutUs = () => {
               luxurious resort or a cozy studio.
             </p>
 
-            <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
+            <h2 className="text-2xl text-accent font-semibold mb-4">
+              Our Mission
+            </h2>
             <p className="mb-4">
               To deliver seamless, reliable, and personalized hotel booking
               experiences—anytime, anywhere.
             </p>
 
-            <h2 className="text-2xl font-semibold mb-4">Why Choose Us?</h2>
+            <h2 className="text-2xl text-accent font-semibold mb-4">
+              Why Choose Us?
+            </h2>
             <ul className="list-disc list-inside space-y-1">
               <li>Verified hotels with real reviews</li>
               <li>Secure payments & 24/7 customer support</li>
@@ -47,8 +53,10 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-semibold mb-4">Our Journey</h2>
+        <div className="mt-16 text-center bg-secondary py-5 rounded-2xl">
+          <h2 className="text-3xl text-accent font-semibold mb-4">
+            Our Journey
+          </h2>
           <p className="max-w-3xl mx-auto">
             From humble beginnings in 2010 to a global hotel booking platform,
             Hoteleo is proud to serve millions of happy customers across 50+
