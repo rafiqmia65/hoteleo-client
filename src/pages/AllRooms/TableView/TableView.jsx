@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 
 const TableView = ({ room }) => {
   return (
-    <tr className="first:bg-yellow-100 even:bg-yellow-50 odd:bg-white hover:bg-yellow-100 transition">
+    <tr className="first:bg-primary even:bg-primary odd:bg-secondary transition">
       <td>
         <img
           src={room.image}
@@ -11,9 +11,11 @@ const TableView = ({ room }) => {
           className="w-20 h-14 object-cover rounded-md"
         />
       </td>
-      <td className="font-semibold text-slate-800">{room.title}</td>
-      <td className="text-yellow-700 font-medium">${room.price}</td>
-      <td className="text-sm text-gray-600 hidden lg:block">{room.features.join(", ")}</td>
+      <td className="font-semibold text-text">{room.title}</td>
+      <td className="text-accent font-medium">${room.price}</td>
+      <td className="text-sm text-text hidden lg:block">
+        {room.features.join(", ")}
+      </td>
       <td>{room.reviews.length}</td>
       <td>
         {room.availability ? (
@@ -29,7 +31,7 @@ const TableView = ({ room }) => {
       <td>
         <NavLink
           to={`/roomDetails/${room._id}`}
-          className="text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-1.5 rounded-full transition-all"
+          className="text-sm font-medium text-white bg-accent hover:bg-yellow-600 px-4 py-1.5 rounded-full transition-all"
         >
           SeeDetails
         </NavLink>

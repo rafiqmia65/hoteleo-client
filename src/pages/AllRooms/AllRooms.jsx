@@ -39,7 +39,7 @@ const AllRooms = () => {
   };
 
   return (
-    <div className="min-h-screen pt-30 pb-14 bg-gradient-to-br from-yellow-50 to-white">
+    <div className="min-h-screen pt-30 pb-14 bg-primary">
       <Helmet>
         <title>Hoteleo - All Rooms</title>
       </Helmet>
@@ -52,7 +52,7 @@ const AllRooms = () => {
                 <select
                   name="budget"
                   defaultValue="All"
-                  className="select cursor-pointer select-bordered border-yellow-400 text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                  className="select cursor-pointer select-bordered border-accent text-text focus:outline-none focus:ring-2 focus:ring-yellow-300"
                 >
                   <option value="All">All</option>
                   <option value="0-1000">0 - 1000</option>
@@ -60,7 +60,7 @@ const AllRooms = () => {
                   <option value="1500+">1500 +</option>
                 </select>
                 <button
-                  className="btn bg-yellow-500 border-yellow-500 text-white border-l-0 rounded-l-none"
+                  className="btn bg-accent border-accent text-white border-l-0 rounded-l-none"
                   type="submit"
                 >
                   Search
@@ -73,8 +73,8 @@ const AllRooms = () => {
                 className={({ selected }) =>
                   `btn btn-sm rounded-full px-4 py-1 font-medium ${
                     selected
-                      ? "bg-yellow-400 text-white shadow-md"
-                      : "bg-white text-yellow-600 border border-yellow-400"
+                      ? "bg-accent text-white shadow-md"
+                      : "bg-white text-accent border border-accent"
                   }`
                 }
               >
@@ -84,8 +84,8 @@ const AllRooms = () => {
                 className={({ selected }) =>
                   `btn btn-sm rounded-full px-4 py-1 font-medium ${
                     selected
-                      ? "bg-yellow-400 text-white shadow-md"
-                      : "bg-white text-yellow-600 border border-yellow-400"
+                      ? "bg-accent text-white shadow-md"
+                      : "bg-white text-accent border border-accent"
                   }`
                 }
               >
@@ -98,9 +98,9 @@ const AllRooms = () => {
           <TabPanels>
             {/* Table View */}
             <TabPanel>
-              <div className="overflow-x-auto rounded-xl mt-12 shadow-md bg-white border border-yellow-100">
+              <div className="overflow-x-auto rounded-xl mt-12 shadow-md bg-primary border border-accent">
                 <table className="table w-full">
-                  <thead className="bg-yellow-50 text-gray-600 font-semibold">
+                  <thead className="bg-primary font-semibold">
                     <tr>
                       <th>Image</th>
                       <th>Title</th>

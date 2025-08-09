@@ -4,29 +4,23 @@ import { NavLink } from "react-router";
 const CardView = ({ room }) => {
   return (
     <NavLink to={`/roomDetails/${room._id}`} className="h-full">
-      <div className="bg-white rounded-2xl border border-yellow-200 hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
+      <div className="bg-secondary rounded-2xl border border-accent hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
         <img
           src={room.image}
           alt={room.title}
           className="w-full h-48 object-cover"
         />
         <div className="p-5 space-y-3 flex flex-col flex-grow">
-          <h3 className="text-xl font-semibold text-slate-800">{room.title}</h3>
-          <p className="text-sm text-gray-600 line-clamp-2">
-            {room.description}
-          </p>
+          <h3 className="text-xl font-semibold text-accent">{room.title}</h3>
+          <p className="text-sm text-text line-clamp-2">{room.description}</p>
 
           <div className="flex flex-wrap items-center justify-between text-sm">
-            <span className="text-yellow-800 font-medium">
-              💰 ${room.price}
-            </span>
-            <span className="text-yellow-700">
-              Reviews: {room.reviews.length}
-            </span>
+            <span className="text-text font-medium">💰 ${room.price}</span>
+            <span className="text-text">Reviews: {room.reviews.length}</span>
           </div>
 
-          <div className="text-sm text-gray-700">
-            <span className="font-semibold text-yellow-800">Features:</span>{" "}
+          <div className="text-sm text-text">
+            <span className="font-semibold text-accent">Features:</span>{" "}
             {room.features.slice(0, 3).join(", ")}...
           </div>
 
